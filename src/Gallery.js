@@ -7,13 +7,14 @@ export default function Gallery({
   disabledItems=[],
   handleButtonClicked=()=>{},
 }) {
-
+  // create a card for each gallery item
   const itemCards = items.map(item => {
     const { id, name, image, courseCode, weeklyHours, semester, track } = item;
     const className = shoppingCart ? 'cart-course-card' : 'course-card';
+    const disabled = disabledItems.some(x => x.id === id);
     return (
       <Card key={id} className={className}>
-        { !shoppingCart ? <Card.Img variant="top" src={image} /> : null }
+        {!shoppingCart ? <Card.Img variant="top" src={image} /> : null}
         <Card.Body>
           <Card.Title>{`${courseCode}: ${name}`}</Card.Title>
           <Card.Text>{`Weekly Hours: ${weeklyHours}`}</Card.Text>
@@ -22,10 +23,10 @@ export default function Gallery({
           {!shoppingCart ? (
             <Button
               variant="primary"
-              disabled={disabledItems.some(x => x.id === id)}
+              disabled={disabled}
               onClick={() => handleButtonClicked(id)}
             >
-              Add
+              {disabled ? 'Added' : 'Add'}
             </Button>
           ) : (
             <Button variant="danger" onClick={() => handleButtonClicked(id)}>
@@ -40,9 +41,11 @@ export default function Gallery({
   // if course gallery
   if (!shoppingCart) {
     return (
-      <div className="gallery" id="course-gallery">
-        {items ? itemCards : null}
-      </div>
+      <Card id="course-gallery">
+        <div className="gallery">
+          {items ? itemCards : null}
+        </div>
+      </Card>
     );
   }
   

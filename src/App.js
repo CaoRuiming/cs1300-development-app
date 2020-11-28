@@ -64,6 +64,7 @@ function App() {
             items={courseGalleryItems}
             disabledItems={cartGalleryItems}
             handleButtonClicked={id => {
+              // append course card with given id to cart
               const newItem = ITEMS.find(x => x.id === id);
               setCartGalleryItems([...cartGalleryItems, newItem]);
             }}
@@ -74,6 +75,7 @@ function App() {
             items={cartGalleryItems}
             shoppingCart={true}
             handleButtonClicked={id => {
+              // remove course card with given id from cart
               setCartGalleryItems([...cartGalleryItems].filter(x => x.id !== id));
             }}
           />
