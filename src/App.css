@@ -26,7 +26,7 @@ main {
 #view-options {
   width: 100%;
   padding: 20px;
-  background-color: #61dafb;
+  background-color: hsl(231, 100%, 90%);
 }
 .option-label {
   margin-right: 20px;
@@ -39,11 +39,10 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* min-height: 600px; */
 }
 
 #course-gallery {
-  background-color: beige;
+  background-color: hsl(231, 100%, 97%);
 }
 .course-card {
   margin: 10px;
@@ -51,7 +50,7 @@ main {
 }
 
 #cart-gallery {
-  background-color: azure;
+  background-color: hsl(231, 100%, 90%);
 }
 .cart-course-card {
   font-size: 90%;

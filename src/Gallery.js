@@ -30,7 +30,7 @@ export default function Gallery({
               disabled={disabled}
               onClick={() => handleButtonClicked(id)}
             >
-              {disabled ? 'Added' : 'Add'}
+              {disabled ? 'Added to Cart' : 'Add to Cart'}
             </Button>
           )}
         </Card.Body>
@@ -47,7 +47,9 @@ export default function Gallery({
       : `${totalWeeklyHours}`;
     return (
       <Card id="cart-gallery">
-        <h2>Shopping Cart</h2>
+        <h2>
+          Shopping Cart ({items.length} item{items.length === 1 ? '' : 's'})
+        </h2>
         <div className="gallery">
           {items ? itemCards : null}
         </div>
